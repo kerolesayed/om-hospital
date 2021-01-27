@@ -1,0 +1,28 @@
+{
+    'name': 'Hospital Mangement',
+    'version': '1.1',
+    'summary': 'app for manging hospital',
+    'sequence': 15,
+    'category': 'Extra Tools',
+    'author': "keroles",
+    'website': 'https://www.keroles.com',
+    'depends': ['mail','product'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'data/data.xml',
+        'data/template_mail.xml',
+        'wizards/create_appointment.xml',
+        'views/patient.xml',
+        'views/doctor.xml',
+        'views/appointment.xml',
+        'reports/report.xml',
+        'reports/patient_card.xml',
+
+    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

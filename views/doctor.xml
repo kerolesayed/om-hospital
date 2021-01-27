@@ -1,0 +1,76 @@
+<odoo>
+ <data>
+     <record model="ir.ui.view" id="doctor_form_view">
+            <field name="name">doctor.form</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <form string="doctor">
+                    <sheet>
+                         <group>
+                             <group>
+                                <field name="name_doctor"/>
+                            </group>
+                            <group>
+                                <field name="gender"/>
+                            </group>
+                             <group>
+                                <field name="related_user"/>
+                            </group>
+                         </group>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+          <record model="ir.ui.view" id="doctor_tree_view">
+            <field name="name">doctor.tree</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <tree>
+                                <field name="name_doctor"/>
+                                <field name="gender"/>
+                                <field name="related_user"/>
+
+                </tree>
+            </field>
+        </record>
+
+               <record model="ir.ui.view" id="doctor_search_view">
+            <field name="name">doctor.search</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <search>
+                                <field name="name_doctor"/>
+                                <field name="gender"/>
+                    <filter name="male" string="Male" domain="[('gender','=','male')]"/>
+                    <filter name="female" string="female" domain="[('gender','=','female')]"/>
+                    <filter name="gender" string="gender" context="{'group_by':'gender'}"/>
+
+                </search>
+            </field>
+        </record>
+
+
+
+   <record id="acton_doctors" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+
+         <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your the first doctor
+                </p>
+         </field>
+      </record>
+
+       <menuitem id="doctors_hospital"
+                 name="Doctors"
+                 parent="root_hospital"
+                 action="acton_doctors"/>
+
+
+ </data>
+</odoo>

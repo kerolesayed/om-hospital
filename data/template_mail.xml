@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <data noupdate="1">
+        <record id="email_patient" model="mail.template">
+            <field name="name">Patient: Send by email</field>
+            <field name="model_id" ref="om_hospital.model_hospital_patient"/>
+            <field name="email_from">${(object.user_id.email_formatted) |safe}</field>
+            <field name="email_to">${object.email}</field>
+            <field name="subject">Patient card (Ref ${object.name_sec})</field>
+            <field name="body_html" type="html">
+                    <div style="margin: 0px; padding: 0px;">
+                        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                            Dear
+                                ${object.name}
+                            <br /><br />
+                            here patient card
+                            <br /><br />
+                            Do not hesitate to contact us if you have any questions.
+                        </p>
+                    </div>
+                                </field>
+                                <field name="report_template" ref="patient_card"/>
+                                <field name="report_name">Patient Card_${(object.name_sec)}</field>
+        </record>
+    </data>
+</odoo>

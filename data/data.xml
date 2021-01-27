@@ -1,0 +1,20 @@
+<odoo>
+    <data noupdate="1">
+        <record id="patient" model="hospital.patient">
+            <field name="name">lolo</field>
+            <field name="gender">female</field>
+            <field name="age">6</field>
+        </record>
+
+    <template id="assets_backend" name="css.test" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/om_hospital/static/src/css/image.css"/>
+        </xpath>
+    </template>
+
+
+
+
+
+    </data>
+</odoo>

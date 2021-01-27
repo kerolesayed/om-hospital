@@ -1,0 +1,38 @@
+<odoo>
+    <template id="report_patient_card">
+         <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                   <h2>patient card</h2>
+                    <div class="page">
+                        Name:<span t-field="doc.name"/>
+                        <br></br>
+                        Age:<span t-field="doc.age"/>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <table class="table table-bordered mb-0" style="border: 2px solid black;">
+                                <tr>
+                                    <td class="text-center align-middle" style="height: 6rem;">
+                                            <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(doc.name_sec or ''), 600, 150)" style="width:100%;height:4rem;"/>
+                                             <span t-field='doc.name_sec'/>
+                                    </td>
+                                </tr>
+                        </table>
+
+
+                    </div>
+                </t>
+            </t>
+         </t>
+    </template>
+
+        <template id="report_patient_view">
+         <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="om_hospital.report_patient_card"/>
+            </t>
+         </t>
+    </template>
+
+</odoo>
