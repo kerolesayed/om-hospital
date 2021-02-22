@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
  <data>
 
@@ -24,6 +25,8 @@
                                     context="{'default_namee' : active_id}"/>
                             <button class="oe_highlight" type="object" name="send_email"
                                 string="Send By Email"/>
+                            <button class="oe_highlight" type="object" name="print_report_patient"
+                                string="Print"/>
 
                     </header>
 
@@ -100,20 +103,20 @@
         </record>
 
                <record model="ir.ui.view" id="patient_search_view">
-            <field name="name">patient.search</field>
-            <field name="model">hospital.patient</field>
-            <field name="arch" type="xml">
-                <search>
+                    <field name="name">patient.search</field>
+                    <field name="model">hospital.patient</field>
+                    <field name="arch" type="xml">
+                       <search>
                                 <field name="name"/>
                                 <field name="name_sec"/>
-                    <filter name="male" string="Male" domain="[('gender','=','male')]"/>
-                    <filter name="female" string="female" domain="[('gender','=','female')]"/>
-                    <filter name="gender" string="gender" context="{'group_by':'gender'}"/>
+                                <filter name="male" string="Male" domain="[('gender','=','male')]"/>
+                                <filter name="female" string="female" domain="[('gender','=','female')]"/>
+                                <filter name="gender" string="gender" context="{'group_by':'gender'}"/>
 
-                </search>
-            </field>
+                      </search>
+                  </field>
                </record>
-			<record id="hospital_kanban_view" model="ir.ui.view">
+			<record id="hospital_patient_kanban_view" model="ir.ui.view">
             	<field name="name">view.hospital.kanban</field>
             	<field name="model">hospital.patient</field>
             	<field name="arch" type="xml">
@@ -128,10 +131,9 @@
                     	<templates>
                         	<t t-name="kanban-box">
                         		<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.id.raw_value)} oe_kanban_card oe_employee_vignette ">
-                            	<!--<div class="oe_kanban_vignette oe_semantic_html_override">-->
                                 	<a type="open">
 										<!-- set image here-->
-                                        <img t-att-src="kanban_image('hospital.patient', 'image', record.id.value)" class="oe_kanban_image"/>
+<!--                                        <img t-att-src="kanban_image('hospital.patient', 'image', record.id.value)" class="oe_kanban_image"/>-->
                                 	</a>
                                 	<div class="oe_kanban_details">
                                     	<!--specify details here -->
@@ -176,7 +178,8 @@
        <menuitem id="patients_hospital"
                  name="Patients"
                  parent="root_hospital"
-                 action="acton_patients"/>
+                 action="acton_patients"
+                 sequence="1"/>
 
 
  </data>

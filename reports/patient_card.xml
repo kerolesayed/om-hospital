@@ -1,7 +1,7 @@
 <odoo>
-    <template id="report_patient_card">
+        <template id="report_patient_view">
          <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
+             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                    <h2>patient card</h2>
                     <div class="page">
@@ -19,19 +19,43 @@
                                     </td>
                                 </tr>
                         </table>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <strong>Appointments</strong>
+                        <table  class="table table-condensed" style="border-bottom: 0px solid white !important;width: 6in;">
+                                <tr>
+                                    <th style="text-align:left"><strong>ID:</strong></th>
+                                    <th style="text-align:left"><strong>Name:</strong></th>
+                                    <th style="text-align:left"><strong>Date:</strong></th>
+                                    <th style="text-align:left"><strong>Notes:</strong></th>
+                                </tr>
+                                <tbody>
+                                    <t t-foreach="appointment_list" t-as="app">
+                                        <tr>
+                                        <td style="text-align:left">
+                                            <t t-esc="app['name']"/>
+                                        </td>
+                                        <td style="text-align:left">
+                                            <t t-esc="app['patient_id']"/>
+                                        </td>
+                                        <td style="text-align:left">
+                                            <t t-esc="app['date']"/>
+                                        </td>
+                                        <td style="text-align:left">
+                                            <t t-esc="app['notes']"/>
+                                        </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
 
 
                     </div>
                 </t>
             </t>
-         </t>
-    </template>
 
-        <template id="report_patient_view">
-         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <t t-call="om_hospital.report_patient_card"/>
-            </t>
          </t>
     </template>
 

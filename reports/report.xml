@@ -7,4 +7,22 @@
             name="om_hospital.report_patient_view"
             file="om_hospital.report_patient_view"
         />
+
+        <report
+            id="appointment_card"
+            model="hospital.appointment"
+            string="Appointment Card"
+            report_type="qweb-pdf"
+            name="om_hospital.report_appointment_view"
+            file="om_hospital.report_appointment_view"
+        />
+
+        <report
+            id="patient_xlsx"
+            model="hospital.patient"
+            string="patient xlsx Card"
+            report_type="xlsx"
+            name="om_hospital.report_patient_xlsx"
+            file="om_hospital.report_patient_xlsx"
+        />
 </odoo>

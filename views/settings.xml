@@ -1,0 +1,56 @@
+<odoo>
+ <data>
+     <record id="settings_view_form" model="ir.ui.view">
+            <field name="name">settings.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                 <div class="app_settings_block" data-string="Hospital" string="Hospital" data-key="om_hospital">
+                    <h2>Hospital Mangement</h2>
+                     <group>
+                    <div class="row mt16 o_settings_container">
+                            <div class="o_setting_right_pane">
+                                    <label string="Default notes" for="notes"/>
+                                        <field name="notes"/>
+                            </div>
+                    </div>
+                     </group>
+                     <group>
+                    <div class="row mt16 o_settings_container">
+                            <div class="o_setting_right_pane">
+                                    <label string="purchase" for="purchase"/>
+                                        <field name="module_purchase"/>
+                            </div>
+                    </div>
+                     </group>
+                 </div>
+                </xpath>
+
+            </field>
+     </record>
+
+     <record id="settings_hospital_action" model="ir.actions.act_window">
+               <field name="name">Setting</field>
+               <field name="type">ir.actions.act_window</field>
+               <field name="res_model">res.config.settings</field>
+               <field name="view_id" ref="base.res_config_settings_view_form"/>
+               <field name="view_mode">form</field>
+               <field name="target">inline</field>
+               <field name="context">{'module':'om_hospital'}</field>
+     </record>
+
+     <menuitem id="menu_hospital_settings"
+               name="Setting"
+               parent="menu_conf"
+               action="settings_hospital_action"
+               sequence="1"/>
+
+     <menuitem id="menu_conf"
+               name="Configuration"
+               parent="root_hospital"
+               sequence="4"
+     />
+
+ </data>
+</odoo>

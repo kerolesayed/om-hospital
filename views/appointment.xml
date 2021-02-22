@@ -7,7 +7,7 @@
                 <form string="appointment">
                     <header>
                         <button name="delete_medicine" type="object"  string="Delete Medicine" class="oe_highlight"/>
-
+                        <button name="print_button_app" type="object"  string="Print" class="oe_highlight"/>
                         <button name="action_confirm" type="object" states="draft" string="Confirm" class="oe_highlight"/>
                         <button name="action_done" type="object" states="confirm" string="Done" class="oe_highlight"/>
 
@@ -121,7 +121,8 @@
        <menuitem id="app_hospital"
                  name="Appointments"
                  parent="root_hospital"
-                 action="acton_appointement"/>
+                 action="acton_appointement"
+                 sequence="2"/>
 
     </data>
 </odoo>

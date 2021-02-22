@@ -8,13 +8,13 @@ class HospitalPatient(models.Model):
     _rec_name = "name"
 
     name = fields.Char("Name", required=True, track_visibility='always')
-    age = fields.Integer("Age")
+    age = fields.Integer("Age", group_operator=False)
     notes = fields.Text("Notes")
     image = fields.Image("Image")
     name_sec = fields.Char(string='Patient ID', required=True, copy=False,
                            readonly=True, index=True, default=lambda self: _('New'))
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ], defualt='male', string='Gender')
-    group_age = fields.Selection([('major', 'Major'), ('minor', 'Minor'), ], string='Age Group', compute='set_age')
+    group_age = fields.Selection([('major', 'Major'), ('minor', 'Minor'), ], string='Age Group', compute='set_age',store=True)
     appointment_count = fields.Integer(string='Appointment', compute='get_count_appointment')
     active = fields.Boolean('Active', default=True)
     doctor = fields.Many2one("hospital.doctor", 'Doctor')
@@ -79,4 +79,6 @@ class HospitalPatient(models.Model):
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
 
+    def print_report_patient(self):
+        return self.env.ref('om_hospital.patient_card').report_action(self)
 

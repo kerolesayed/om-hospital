@@ -41,11 +41,24 @@ class Hospitalappointment(models.Model):
         for r in self:
             r.appointment_lines = [(5, 0, 0)]
 
+    @api.model
+    def default_get(self, fields):
+        res = super(Hospitalappointment, self).default_get(fields)
+        res['patient_id'] = 15
+        res['notes'] = 'hello'
+        return res
+
+    def print_button_app(self):
+        return self.env.ref('om_hospital.appointment_card').report_action(self)
+
+
+
 
 class Hospitalappointmentlines(models.Model):
     _name = "hospital.appointmentlines"
 
     medicine = fields.Many2one('product.product', string='Medicine')
     qty = fields.Integer(string='Quantity')
-    appointment_id = fields.Many2one('hospital.appointment', string='ID')
+    appointment_id = fields.Many2one('hospital.appointment', string='appointment id')
+
 

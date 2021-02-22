@@ -17,13 +17,30 @@ class createappointment(models.TransientModel):
     def get_data(self):
         appointment = self.env['hospital.appointment'].search([])
 
-        for r in appointment:
-            print('appointment id', r.name)
+        print('appointment id', appointment)
+        return {
+            'type': "ir.action.no_nothing"
+        }
 
-    # to overwrite in model by function
-    def write(self, vals):
-        res = super(createappointment, self).write(vals)
-        return res
+    def print_report_app(self):
+        data = {
+            'model': 'create.appointment',
+            'form': self.read()[0]
+        }
+        print(self.read()[0])
+        print(self.read())
+        print(self.browse(data))
+        print(data)
+        print(data['form']['namee'])
+
+        return self.env.ref('om_hospital.appointment_card').report_action(self, data=data)
+
+
+
+    def del_patient(self):
+        for r in self:
+          r.namee.unlink()
+
 
 
 

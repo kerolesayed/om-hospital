@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="patient_page" name="patient page">
+        <t t-call="website.layout">
+            <div class="container">
+                hey ..im using controllers
+                </div>
+        </t>
+    </template>
+</odoo>

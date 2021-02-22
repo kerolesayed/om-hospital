@@ -69,7 +69,8 @@
        <menuitem id="doctors_hospital"
                  name="Doctors"
                  parent="root_hospital"
-                 action="acton_doctors"/>
+                 action="acton_doctors"
+                 sequence="3"/>
 
 
  </data>

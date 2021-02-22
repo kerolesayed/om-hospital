@@ -6,7 +6,7 @@
     'category': 'Extra Tools',
     'author': "keroles",
     'website': 'https://www.keroles.com',
-    'depends': ['mail','product'],
+    'depends': ['mail','product','odoo_report_xlsx'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
@@ -17,8 +17,11 @@
         'views/patient.xml',
         'views/doctor.xml',
         'views/appointment.xml',
+        'views/settings.xml',
+        'views/template.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
+        'reports/appointment_card.xml',
 
     ],
     'demo': [],

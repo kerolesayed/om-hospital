@@ -11,6 +11,8 @@
                     <footer>
                     <button string="Create" name="create_oppointment" type="object" class="btn-primary"/>
                     <button string="Get Data" name="get_data" type="object" class="btn-primary"/>
+                    <button string="Delete Patient" name="del_patient" type="object" class="btn-primary"/>
+                    <button string="Print" name="print_report_app" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel" />
                     </footer>
 
